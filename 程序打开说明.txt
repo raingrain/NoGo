@@ -1,0 +1,2 @@
+1.直接把“发布版”整个文件拷贝到pygame所在环境的安装总目录上，比如电脑中同时有python和aconada，可通过pip install pygame来看pygame的安装位置来进行拷贝
+2.拷贝后直接点进去shift+左键打开选项点击Powershell 输入python main.py运行程序，需要连接耳机或者音响，或者电脑本身有外放功能
