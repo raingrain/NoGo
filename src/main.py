@@ -25,24 +25,32 @@ window_high = border_width * 2 + (size - 1) * unit  # 计算窗口宽：两个�
 # 窗口，字体
 screen = pygame.display.set_mode((window_width + 500, window_high))  # 设置窗口的大小，单位为像素
 pygame.display.set_caption('不围棋No Go')  # 窗口标题
-ziti = pygame.font.Font("audios\simsun.ttc", 20)  # 字体和字号
+ziti = pygame.font.Font("assets\\audios\simsun.ttc", 20)  # 字体和字号
 
 # 音效文件
-sound_black = pygame.mixer.Sound('audios\黑.wav')  # 黑棋声音
-sound_white = pygame.mixer.Sound('audios\白.wav')  # 白棋落子声音
-sound_win = pygame.mixer.Sound('audios\胜利.mp3')  # 胜利声音
-sound_defeat = pygame.mixer.Sound('audios\失败.mp3')  # 失败声音
-sound_white_voice = [pygame.mixer.Sound('audios\白子耀眼，若恒星亘古不变.mp3'), pygame.mixer.Sound('audios\黑子深邃，为长夜苍茫莫测.mp3'),
-                     pygame.mixer.Sound('audios\方寸棋盘，便是我的天地.mp3'), pygame.mixer.Sound('audios\不得贪胜，不可不胜.mp3'),
-                     pygame.mixer.Sound('audios\可以投子认输了.mp3'), pygame.mixer.Sound('audios\没有对胜利的渴求，很快将百无一用.mp3'),
-                     pygame.mixer.Sound('audios\棋盘上栖息的，除却输赢，还有阴阳.mp3'), pygame.mixer.Sound('audios\让天下一先.mp3'),
-                     pygame.mixer.Sound('audios\若世有神明，亦会胜它半字.mp3'), pygame.mixer.Sound('audios\胜负，半目足以.mp3'),
-                     pygame.mixer.Sound('audios\输掉的话，会难过到哭泣吧.mp3'), pygame.mixer.Sound('audios\算得清每颗棋子的价值吗，对你是件困难的事吧.mp3'),
-                     pygame.mixer.Sound('audios\纵横十九道内的，是无穷宇宙.mp3')]
-sound_white_voice_text = ['白子耀眼，若恒星亘古不变', '黑子深邃，为长夜苍茫莫测', '方寸棋盘，便是我的天地', '不得贪胜，不可不胜', '可以投子认输了', '没有对胜利的渴求，很快将百无一用',
-                          '棋盘上栖息的，除却输赢，还有阴阳', '让天下一先', '若世有神明，亦会胜它半字', '胜负，半目足以', '输掉的话，会难过到哭泣吧',
+sound_black = pygame.mixer.Sound('assets\\audios\黑.wav')  # 黑棋声音
+sound_white = pygame.mixer.Sound('assets\\audios\白.wav')  # 白棋落子声音
+sound_win = pygame.mixer.Sound('assets\\audios\胜利.mp3')  # 胜利声音
+sound_defeat = pygame.mixer.Sound('assets\\audios\失败.mp3')  # 失败声音
+sound_white_voice = [pygame.mixer.Sound('assets\\audios\白子耀眼，若恒星亘古不变.mp3'),
+                     pygame.mixer.Sound('assets\\audios\黑子深邃，为长夜苍茫莫测.mp3'),
+                     pygame.mixer.Sound('assets\\audios\方寸棋盘，便是我的天地.mp3'),
+                     pygame.mixer.Sound('assets\\audios\不得贪胜，不可不胜.mp3'),
+                     pygame.mixer.Sound('assets\\audios\可以投子认输了.mp3'),
+                     pygame.mixer.Sound('assets\\audios\没有对胜利的渴求，很快将百无一用.mp3'),
+                     pygame.mixer.Sound('assets\\audios\棋盘上栖息的，除却输赢，还有阴阳.mp3'),
+                     pygame.mixer.Sound('assets\\audios\让天下一先.mp3'),
+                     pygame.mixer.Sound('assets\\audios\若世有神明，亦会胜它半字.mp3'),
+                     pygame.mixer.Sound('assets\\audios\胜负，半目足以.mp3'),
+                     pygame.mixer.Sound('assets\\audios\输掉的话，会难过到哭泣吧.mp3'),
+                     pygame.mixer.Sound('assets\\audios\算得清每颗棋子的价值吗，对你是件困难的事吧.mp3'),
+                     pygame.mixer.Sound('assets\\audios\纵横十九道内的，是无穷宇宙.mp3')]
+sound_white_voice_text = ['白子耀眼，若恒星亘古不变', '黑子深邃，为长夜苍茫莫测', '方寸棋盘，便是我的天地',
+                          '不得贪胜，不可不胜', '可以投子认输了', '没有对胜利的渴求，很快将百无一用',
+                          '棋盘上栖息的，除却输赢，还有阴阳', '让天下一先', '若世有神明，亦会胜它半字', '胜负，半目足以',
+                          '输掉的话，会难过到哭泣吧',
                           '算得清每颗棋子的价值吗，对你是件困难的事吧', '纵横十九道内的，是无穷宇宙']
-pygame.mixer.Sound('audios\背景音乐.mp3').play()
+pygame.mixer.Sound('assets\\audios\背景音乐.mp3').play()
 
 # 按钮常量
 start_btn_begin_x = 100  # 开始按键起始x值
@@ -72,7 +80,7 @@ huiqi_y = [console_btn_begin_y + (btn_high + btn_gap) * 2,
 
 # 绘制开始界面
 def draw_start():
-    screen.blit(pygame.image.load(r"images\开始界面.jpg"), (0, 0))  # 背景图片填充
+    screen.blit(pygame.image.load(r"assets\images\开始界面.jpg"), (0, 0))  # 背景图片填充
     pygame.draw.rect(screen, pink, [man_machine_x[0], man_machine_y[0], btn_width, btn_high])  # 绘制"人机模式”按键框
     screen.blit(ziti.render(f'人机对战', False, black), [start_text_x, start_btn_begin_y + btn_text_y])  # 绘制文本
     pygame.draw.rect(screen, pink, [man_man_x[0], man_man_y[0], btn_width, btn_high])  # 绘制"人人模式”按键框
@@ -94,7 +102,7 @@ def draw_btn(color):
 
 # 绘制棋盘
 def draw_map():
-    screen.blit(pygame.image.load(r"images\棋盘.jpg"), (0, 0))  # 背景图片填充
+    screen.blit(pygame.image.load(r"assets\images\棋盘.jpg"), (0, 0))  # 背景图片填充
     for item in range(0, size):  # 绘制行和纵坐标
         pygame.draw.line(screen, black, [border_width, border_width + item * unit],
                          [border_width + (size - 1) * unit, border_width + item * unit], 1)
@@ -440,22 +448,23 @@ class Men_Machine_PlayChess(Men_Machine_Chess):
             if self.chess_status == 3 or self.chess_status == 4: screen.blit(ziti.render(f'{index}', False, white),
                                                                              [border_width + item[1] * unit - 5,
                                                                               border_width + item[2] * unit - 10]) if \
-            item[0] == 1 else screen.blit(ziti.render(f'{index}', False, black), [border_width + item[1] * unit - 5,
-                                                                                  border_width + item[
-                                                                                      2] * unit - 10])  # 走棋路径
+                item[0] == 1 else screen.blit(ziti.render(f'{index}', False, black), [border_width + item[1] * unit - 5,
+                                                                                      border_width + item[
+                                                                                          2] * unit - 10])  # 走棋路径
             index += 1
 
     # 绘制右侧的状态面板
     def draw_panel(self):
-        screen.blit(pygame.image.load(r"images\人机模式.jpg"), (console_x[0] + 30, 0))  # 背景
+        screen.blit(pygame.image.load(r"assets\images\人机模式.jpg"), (console_x[0] + 30, 0))  # 背景
         if len(self.current_record) == 0 or self.chess_status == 0:
             screen.blit(ziti.render('开始挑战吧', False, black), [console_x[0] + 50, console_y[0] + 150])  # 根据走棋状态来显示语句
         elif self.chess_status == 1:
             if len(self.current_record) != 0:
-                screen.blit(ziti.render(f'{self.current_record[-1][1] + 1, self.current_record[-1][2] + 1}', False, black),
-                            [console_x[0] + 50, console_y[0] + 200])
+                screen.blit(
+                    ziti.render(f'{self.current_record[-1][1] + 1, self.current_record[-1][2] + 1}', False, black),
+                    [console_x[0] + 50, console_y[0] + 200])
                 screen.blit(ziti.render(sound_white_voice_text[(self.number_white - 1) % 12], False, black),
-                        [console_x[0] + 50, console_y[0] + 150])  # 语音文本
+                            [console_x[0] + 50, console_y[0] + 150])  # 语音文本
         elif self.chess_status == 3:
             screen.blit(ziti.render('人类胜！游戏结束！', False, black), [console_x[0] + 50, console_y[0] + 150])
         elif self.chess_status == 4:
@@ -523,12 +532,13 @@ class Men_Machine_PlayChess(Men_Machine_Chess):
             enter()  # 是否新的一局
         elif exit_game_x[0] < pos[0] < exit_game_x[1] and exit_game_y[0] < pos[1] < exit_game_y[1]:
             sys.exit()  # 退出系统
-        elif self.chess_status != 3 and self.chess_status != 4 and huiqi_x[0] < pos[0] < huiqi_x[1] and huiqi_y[0] < pos[1] < huiqi_y[
+        elif self.chess_status != 3 and self.chess_status != 4 and huiqi_x[0] < pos[0] < huiqi_x[1] and huiqi_y[0] < \
+                pos[1] < huiqi_y[
             1]:  # 是否悔棋
             if len(self.current_record) == 0:
                 return 0
             self.huiqi()
-            screen.blit(pygame.image.load(r"images\棋盘.jpg"), (0, 0))  # 绘制背景图
+            screen.blit(pygame.image.load(r"assets\images\棋盘.jpg"), (0, 0))  # 绘制背景图
             draw_map()  # 绘制棋盘
             self.draw_chess()  # 绘制棋子
             self.draw_panel()  # 绘制面板
@@ -546,7 +556,7 @@ class Men_Machine_PlayChess(Men_Machine_Chess):
                     sys.exit()
                 if event.type == MOUSEBUTTONUP:  # 鼠标落子或点击按键
                     if self.is_click(event.pos) < 0:  # 非按钮事件，则处理走棋
-                        if self.chess_status!=3 and self.chess_status!=4:
+                        if self.chess_status != 3 and self.chess_status != 4:
                             self.play_black_chess(event.pos)
                 elif self.chess_status == -1:
                     self.play_white_chess()
@@ -638,12 +648,12 @@ class Men_Men_PlayChess(Men_Men_Chess):
             if self.chess_status == 3 or self.chess_status == 4: screen.blit(ziti.render(f'{index}', False, white),
                                                                              [border_width + item[1] * unit - 5,
                                                                               border_width + item[2] * unit - 10]) if \
-            item[0] == 1 else screen.blit(ziti.render(f'{index}', False, black),
-                                          [border_width + item[1] * unit - 5, border_width + item[2] * unit - 10])
+                item[0] == 1 else screen.blit(ziti.render(f'{index}', False, black),
+                                              [border_width + item[1] * unit - 5, border_width + item[2] * unit - 10])
             index += 1
 
     def draw_panel(self):
-        screen.blit(pygame.image.load(r"images\人人模式.jpg"), (console_x[0] + 30, 0))
+        screen.blit(pygame.image.load(r"assets\images\人人模式.jpg"), (console_x[0] + 30, 0))
         if self.chess_status == 0 or self.chess_status == 1:
             screen.blit(ziti.render('黑行..', False, white), [console_x[0] + 50, console_y[0] + 150])
         elif self.chess_status == -1:
@@ -674,7 +684,7 @@ class Men_Men_PlayChess(Men_Men_Chess):
         elif huiqi_x[0] < pos[0] < huiqi_x[1] and huiqi_y[0] < pos[1] < huiqi_y[
             1] and self.chess_status != 3 and self.chess_status != 4:
             self.huiqi()
-            screen.blit(pygame.image.load(r"images\棋盘.jpg"), (0, 0))
+            screen.blit(pygame.image.load(r"assets\images\棋盘.jpg"), (0, 0))
             draw_map()
             self.draw_chess()
             self.draw_panel()
