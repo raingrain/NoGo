@@ -1,1 +1,1 @@
-NoGo is a variant of Go. This project not only supports offline player versus player or human-machine battles, but also supports online machine battles on [AILab@PKU](https://ai.pku.edu.cn/zy/index.htm)'s [Botzone](https://botzone.org.cn/) platform through manual input.
+NoGo is a variant of Go, this project not only supports offline player versus player or human-machine battles, but also supports online machine battles on [AILab@PKU](https://ai.pku.edu.cn/zy/index.htm)'s [Botzone](https://botzone.org.cn/) platform through manual input.
